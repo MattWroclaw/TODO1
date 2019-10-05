@@ -20,6 +20,7 @@
     </appender>
 
     <root level="DEBUG">
+<!--        komentu-->
         <appender-ref ref="FILE" />
     </root>
 

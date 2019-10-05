@@ -20,6 +20,17 @@ public class TaskController extends HttpServlet {
     private static Logger log = LoggerFactory.getLogger(TaskController.class);
 
     @Override
+    public void init() throws ServletException {
+// tutaj inicjulizujemy zasoby (np. bazy danych)
+//        metoda wywołana przy tworzeniu instancji klasy servletu
+    }
+
+    @Override
+    public void destroy() {
+//        metoda wywoływana przy zamknięciu kontekstu serwletów
+    }
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        metoda get zawsze zwraca listę zadań do wyświetlenia
 
@@ -65,7 +76,7 @@ public class TaskController extends HttpServlet {
         task1.setTaskDescription(taskParam);
 
 
-        String date = request.getParameter("date");
+        String date = request.getParameter("finishDate");
         if (date != null && !date.isEmpty()) {
             LocalDateTime formatedDate = LocalDateTime.parse(
                     date, DateTimeFormatter.ISO_LOCAL_DATE_TIME);
