@@ -39,20 +39,21 @@ ${pageContext.response.locale}
         return;
     }
 %>
+<h1><%=
+    session.getId()
+%></h1>
 <div class="odstep container">
-
-
     <main role="main" class="row inner cover font-black" id="mainFromular">
         <form action="tasks" method="post">
             <div class="row col-md-12">
-                <div class="col-1"><label for="textId"><fmt:message key="todo.newTask"/></label></div>
+                <div class="col-2"><label for="textId"><fmt:message key="todo.newTask"/></label></div>
                 <div class="col-3"><input id="textId" type="text" name="taskDescription"></div>
 
-                <div class="col-1"><label for="dateId"><fmt:message key="todo.whenDone"/></label></div>
+                <div class="col-2"><label for="dateId"><fmt:message key="todo.whenDone"/></label></div>
                 <div class="col-3"><input id="dateId" type="datetime-local" name="finishDate"></div>
 
                 <div class="col-1"><label for="priorytyId"> <fmt:message key="todo.priority"/> </label></div>
-                <div class="col-3"><select id="priorytyId" name="priority"/></div>
+                <div class="col-1"><select id="priorytyId" name="priority"/></div>
 
                 <div class="col-1"><option value="HIGH"><fmt:message key="todo.high"/></option></div>
                 <div class="col-1"> <option value="MID" selected><fmt:message key="todo.mid"/></option>
@@ -64,6 +65,8 @@ ${pageContext.response.locale}
             </div>
             <br><br>
             <input type="submit" value="<fmt:message key="todo.addButton"/>">
+            <input type="submit" value="By date" name="byDate"/>
+
         </form>
     </main>
     <table>
